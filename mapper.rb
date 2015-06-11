@@ -2,6 +2,7 @@ require 'sinatra'
 require 'net/http'
 require "nokogiri"
 require 'open-uri'
+require 'geocoder/us'
 
 
 get '/hi' do
@@ -45,10 +46,32 @@ get '/committee/:id' do |id|
 	data.search('tr').each do |tr|
 		td=tr.search('td')
 		if !td[0].nil?
-			@funk.push [td[0].text,td[1].text]
+			addr=td[0].to_s.sub(/.*\n/, '').gsub(/<br>/, ', ').sub(/<.*>/, '')
+			amt=td[1].text
+			@funk.push [addr,amt]
+		end
+	end
+	#geocode it!
+	geodb="/opt/tiger/geocoder.db"
+	db=Geocoder::US::Database.new(geodb)
+
+	@funk.each do |row|
+		if row[0]=="" 
+			row.push 'nil','nil'
+		else
+			geo=db.geocode(row[0])
+			if !geo[0].nil?
+				lat=geo[0][:lat].to_s
+				lon=geo[0][:lon].to_s
+			else
+				lat=''
+				lon=''
+			end
+			row.push lat,lon
 		end
 	end
 
 	erb :committee
+	#@funk.to_s
 end
 
