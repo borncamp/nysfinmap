@@ -14,12 +14,13 @@ get '/' do
 end
 
 post '/search' do
+
 	url="http://www.elections.ny.gov:8080/plsql_browser/CONTRIB_PRE_A_COUNTY_TEST"
 	headers={
-	"NAME_IN"=>"Brown",
+	"NAME_IN"=>params[:candidate],
 	"OFFICE_IN"=>"ALL",
 	"county_IN"=>"ALL",
-	"date_from"=>"01/01/2000",
+	"date_from"=>"01/01/2010",
 	"date_to"=>"01/01/2016",
 	"CATEGORY_IN"=>"ALL",
 	"AMOUNT_from"=>"0",
