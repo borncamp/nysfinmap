@@ -4,6 +4,7 @@ require "nokogiri"
 require 'open-uri'
 require 'geocoder/us'
 
+class NysFinMap < Sinatra::Base
 
 get '/hi' do
 	"hello there"
@@ -75,4 +76,4 @@ get '/committee/:id' do |id|
 	erb :committee
 	#@funk.to_s
 end
-
+end
