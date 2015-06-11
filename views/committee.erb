@@ -26,7 +26,7 @@
 
 		<% @funk.each do |row| %>
 			L.marker(<%=row[2..3].to_s%>).addTo(map)
-			.bindPopup("<%= row[0]%>");
+			.bindPopup("Donor: <%= row[0]%>  <br/> Donation: <%= row[1]%>");
 		<%end%>
 
 
