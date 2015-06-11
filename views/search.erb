@@ -1,0 +1,27 @@
+Here's what we found matching your search results.
+Go ahead and pick one.
+
+<table>
+  <tr>
+    <th>Filer Name &nbsp; &nbsp;</th>
+    <th>Comittee Type</th>
+    <th>Office</th>
+    <th>Dist</th>
+    <th>County</th>
+    <th>Municipality</th>
+    <th>FilerID</th>
+  </tr>
+
+
+  <% @clean_data.each do  |row|%>
+   <tr>
+	   <th><%= row[0]%></th>
+	   <th><%= row[1]%></th>
+	   <th><%= row[2]%></th>
+	   <th><%= row[3]%></th>
+	   <th><%= row[4]%></th>
+	   <th><%= row[5]%></th>
+	   <th><%= row[6]%></th>
+   </tr>
+   <%end%>
+</table>
