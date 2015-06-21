@@ -5,8 +5,6 @@ require 'open-uri'
 require 'geocoder/us'
 
 class NysFinMap < Sinatra::Base
-    use Rack::Timeout
-        Rack::Timeout.timeout = 10
 
 get '/hi' do
 	"hello there"
