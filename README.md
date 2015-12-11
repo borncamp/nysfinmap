@@ -1,5 +1,5 @@
-Maps Campaign Donations in NYS 
-Super Beta and Probably Broken  
+Maps Campaign Donations in NYS   
+Super Beta and Probably Broken   
 Don't use for serious shit    
 Might work for ya though?
 
